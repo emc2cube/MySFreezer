@@ -100,7 +100,7 @@ int oldBatteryPcnt = 0;
 #endif // end BATTERY_MONITORING
 
 #define SN "MySFreezer"                     // Name of the sketch
-#define SV "2.0"                            // Version (2.0 : use MySensors 2.0)
+#define SV "2.1.1"                          // Version (2.x : use MySensors 2.x)
 
 #define MESSAGEWAIT 500                     // Wait a few ms between radio Tx
 
@@ -123,7 +123,7 @@ void setup() {
   SLEEP_TIME_ALARM = 10000UL;               // Sleep time between reads when alarm is on (10s)
 #endif
 
-  metric = getConfig().isMetric;
+  metric = getControllerConfig().isMetric;  // was getConfig().isMetric; before MySensors v2.1.1
 
   // use the 1.1 V internal reference
 #if defined(__AVR_ATmega2560__)
